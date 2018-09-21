@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
       .get(
         'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/guessNutrition?title=Spaghetti+Aglio+et+Olio'
       )
-      .header('X-Mashape-Key', process.env.XMashKey)
+      .header('X-Mashape-Key', process.env.xMashKey)
       .header(
         'X-Mashape-Host',
         'spoonacular-recipe-food-nutrition-v1.p.mashape.com'
