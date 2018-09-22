@@ -4,9 +4,12 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
+    console.log(req.query)
     unirest
       .get(
-        'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/guessNutrition?title=Spaghetti+Aglio+et+Olio'
+        `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/guessNutrition${
+          req.query
+        }`
       )
       .header('X-Mashape-Key', process.env.xMashKey)
       .header(
