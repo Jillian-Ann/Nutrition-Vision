@@ -7,8 +7,8 @@ router.get('/', async (req, res, next) => {
     console.log(req.query)
     unirest
       .get(
-        `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/guessNutrition${
-          req.query
+        `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/guessNutrition?title=${
+          req.query.title
         }`
       )
       .header('X-Mashape-Key', process.env.xMashKey)
