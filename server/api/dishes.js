@@ -29,7 +29,7 @@ router.get('/exists', async (req, res, next) => {
     unirest
       .get(
         `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/queries/analyze?${
-          req.query.analyze
+          req.query.title
         }`
       )
       .header('X-Mashape-Key', process.env.xMashKey)
