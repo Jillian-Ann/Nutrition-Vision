@@ -23,3 +23,24 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/exists', async (req, res, next) => {
+  try {
+    unirest
+      .get(
+        `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/queries/analyze?${
+          req.query.analyze
+        }`
+      )
+      .header('X-Mashape-Key', process.env.xMashKey)
+      .header(
+        'X-Mashape-Host',
+        'spoonacular-recipe-food-nutrition-v1.p.mashape.com'
+      )
+      .end(function(result) {
+        res.json(result.body)
+      })
+  } catch (err) {
+    next(err)
+  }
+})
