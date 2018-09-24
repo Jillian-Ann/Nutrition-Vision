@@ -24,11 +24,12 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('/exists', async (req, res, next) => {
+router.get('/check', async (req, res, next) => {
+  console.log(req.query)
   try {
     unirest
       .get(
-        `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/queries/analyze?${
+        `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/queries/analyze?q=${
           req.query.title
         }`
       )
